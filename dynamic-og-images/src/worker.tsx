@@ -1,5 +1,5 @@
-import { defineApp, ErrorResponse } from "@redwoodjs/sdk/worker";
-import { route, render, prefix } from "@redwoodjs/sdk/router";
+import { defineApp, ErrorResponse } from "rwsdk/worker";
+import { route, render, prefix } from "rwsdk/router";
 import { Document } from "@/app/Document";
 import { Home } from "@/app/pages/Home";
 import { setCommonHeaders } from "@/app/headers";
@@ -10,7 +10,7 @@ import { db, setupDb } from "./db";
 import type { User } from "@prisma/client";
 import { env } from "cloudflare:workers";
 import { ImageResponse } from "workers-og";
-import Og from "./app/components/og";
+import Og from "./app/components/Og";
 export { SessionDurableObject } from "./session/durableObject";
 
 export type AppContext = {
@@ -49,7 +49,12 @@ export default defineApp([
     }
   },
   render(Document, [
-    route("/", () => new Response("Hello, World!")),
+    route("/", () => (
+      <>
+        <meta property="og:image" content="/og" />
+        <h1>Hello, World!</h1>
+      </>
+    )),
     route("/og", () => {
       const title = "Hello, World!";
       const html = `
@@ -66,7 +71,7 @@ export default defineApp([
       });
     }),
     route("/og-react", () => {
-      const title = "Hello, Adele!";
+      const title = "Hello, Amy!";
       const og = <Og title={title} />;
 
       return new ImageResponse(og, {

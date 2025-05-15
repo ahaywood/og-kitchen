@@ -9,7 +9,7 @@ import {
 } from "@simplewebauthn/server";
 
 import { sessions } from "@/session/store";
-import { requestInfo } from "@redwoodjs/sdk/worker";
+import { requestInfo } from "rwsdk/worker";
 import { db } from "@/db";
 import { env } from "cloudflare:workers";
 
@@ -62,7 +62,7 @@ export async function startPasskeyLogin() {
 
 export async function finishPasskeyRegistration(
   username: string,
-  registration: RegistrationResponseJSON,
+  registration: RegistrationResponseJSON
 ) {
   const { request, headers } = requestInfo;
   const { origin } = new URL(request.url);

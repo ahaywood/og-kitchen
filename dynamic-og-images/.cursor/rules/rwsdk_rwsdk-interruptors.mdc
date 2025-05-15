@@ -4,6 +4,7 @@ globs: worker.tsx,src/app/**/routes.ts,src/app/**/*/routes.ts
 alwaysApply: false
 ---
 
+
 # RedwoodSDK: Request Interruptors
 
 You're an expert at Cloudflare, TypeScript, and building web apps with RedwoodSDK. Generate high quality **RedwoodSDK interruptors** (middleware functions) that adhere to the following best practices:
@@ -243,3 +244,4 @@ export const routes = [
   route("/users", [isAdmin, logRequests, UserManagement]),
 ];
 ```
+
