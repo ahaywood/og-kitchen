@@ -5,10 +5,13 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["driverAdapters"]
-  output          = "../node_modules/.prisma/client"
-
+  provider = "prisma-client"
+  runtime = "workerd"
+  moduleFormat = "esm"
+  generatedFileExtension = "ts"
+  importFileExtension = "ts"
+  output = "../generated/prisma"
+  previewFeatures = ["queryCompiler", "driverAdapters"]
 }
 
 datasource db {
@@ -32,7 +35,7 @@ model Credential {
   credentialId  String   @unique // WebAuthn credential identifier
   publicKey     Bytes
   counter       Int      @default(0)
-  
+
   @@index([credentialId])
   @@index([userId])
 }

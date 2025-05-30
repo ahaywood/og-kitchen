@@ -3,9 +3,7 @@
   "name": "og-kitchen",
   "main": "src/worker.tsx",
   "compatibility_date": "2024-09-23",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "binding": "ASSETS"
   },
@@ -26,16 +24,14 @@
   "migrations": [
     {
       "tag": "v1",
-      "new_sqlite_classes": [
-        "SessionDurableObject"
-      ]
+      "new_sqlite_classes": ["SessionDurableObject"]
     }
   ],
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "og-kitchen-respective-lobster",
-      "database_id": "fd28b522-28ff-42a7-a729-4619c0419c63"
+      "database_id": "6996839c-14be-494f-ab13-684ace266363"
     }
   ]
 }
